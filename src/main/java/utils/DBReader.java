@@ -23,7 +23,7 @@ public class DBReader {
 
 
             while (resultSet.next()) {
-                Shop shop = new Shop(resultSet.getString("item"), resultSet.getInt("countOfProduct"), resultSet.getInt("priceOfProduct"));
+                Shop shop = new Shop(resultSet.getString("item"), resultSet.getInt("countOfproduct"), resultSet.getInt("priceofproduct"));
                 shop1.add(shop);
             }
 
@@ -34,14 +34,14 @@ public class DBReader {
         return shop1;
     }
 
-    /*public static void insert(int id, String item, int countOfProduct, int priceOfProduct) {
+    public static void insert(int id, String item, int countOfProduct, int priceOfProduct) {
         try (Connection connection = DriverManager.getConnection(URL, USER_NAME, USER_PASSWORD)) {
 
             PreparedStatement preparedStatement = connection.prepareStatement(QUERY_INSERT);
-            preparedStatement.setInt(5, 5);
-            preparedStatement.setString(5, "water-gun");
-            preparedStatement.setInt(5, 10);
-            preparedStatement.setInt(5, 45);
+            preparedStatement.setInt(1, 5);
+            preparedStatement.setString(2, "water-gun");
+            preparedStatement.setInt(3, 10);
+            preparedStatement.setInt(4, 45);
             preparedStatement.executeUpdate();
 
         } catch (SQLException exception) {
@@ -75,7 +75,7 @@ public class DBReader {
             throw new RuntimeException(String.format("Please check connection string" +
                     ". URL [%s], name [%s], pass [%s]", URL, USER_NAME, USER_PASSWORD));
         }
-    }*/
+    }
     public static void main(String[] args) {
         getItemsFromDB();
     }
